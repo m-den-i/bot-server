@@ -1,0 +1,13 @@
+- name: Run postgres instance
+  docker_container:
+    name: "skypebot_db"
+    image: postgres:12-alpine
+    volumes:
+    - "skypebot_db:/var/lib/postgresql/data"
+    published_ports:
+    - "5435:5432"
+    env:
+      POSTGRES_PASSWORD: "skypebot"
+      POSTGRES_USER: "skypebot"
+      POSTGRES_DB": "skypebot"
+    restart_policy: "always"

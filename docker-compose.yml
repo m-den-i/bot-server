@@ -1,0 +1,23 @@
+version: '2'
+services:
+  postgres:
+    image: 'postgres:9.6.9-alpine'
+    environment:
+      POSTGRES_PASSWORD: skypebot
+      POSTGRES_USER: skypebot
+      POSTGRES_DB: skypebot
+    volumes:
+      - './docker_data/pg:/var/lib/postgresql/data'
+    ports:
+      - '5435:5432'
+  app:
+    build: .
+    command: /bin/sh -c "cd /code && ./run ./bin/migrate && ./run ./main.py"
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    volumes:
+      - "./data:/code/data"
+    ports:
+      - '8888:8888'

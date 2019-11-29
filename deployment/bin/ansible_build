@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ansible-playbook deployment/ansible/deploy.yml -i deployment/ansible/inventory.ini

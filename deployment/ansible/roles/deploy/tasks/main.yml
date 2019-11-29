@@ -1,0 +1,19 @@
+- name: Load vars
+  include_vars:
+    dir: "vars"
+    ignore_files: '.template'
+- name: Run migrations and the application
+  docker_container:
+    image: "{{ registry }}:{{ image_tag }}"
+    pull: yes
+    command: /bin/sh -c "cd /code && ./run ./bin/migrate && ./run ./main.py"
+    network_mode: bridge
+    name: "skypebot.app"
+    published_ports:
+      - "{{ server_port }}:{{ server_port }}"
+    restart_policy: on-failure
+    state: started
+    restart: yes
+    env: "{{ env }}"
+    volumes:
+      - "./data:/code/data:rw"

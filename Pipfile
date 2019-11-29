@@ -1,0 +1,39 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+aiohttp_autoreload = "*"
+# Testing staff
+pytest-asyncio = "*"
+pytest-cov = "*"
+pytest-vcr = "*"
+pytest-xdist = "*"
+aioresponses = "*"
+# debugging
+ipdb = "*"
+
+[packages]
+# Server
+aiohttp = {extras = ["speedups"],version = "*"}
+aiohttp-jinja2 = "*"
+uvloop = "*"
+aiojobs = "*"
+# DB
+sqlalchemy = "*"
+aiopg = "*"
+databases = "*"
+"databases[postgresql]" = "*"
+alembic = "*"
+# Misc
+ipython = "*"
+# Bot-related
+skpy = "*"
+janus = "*"
+dateparser = "*"
+apscheduler = "*"
+pytz = "*"
+
+[requires]
+python_version = "3.7"

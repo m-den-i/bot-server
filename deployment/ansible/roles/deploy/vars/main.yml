@@ -1,0 +1,4 @@
+---
+image_tag: "{{ tag | default('latest') }}"
+registry: "{{registry_url}}"
+server_port: "8888"

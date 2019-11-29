@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+docker login "${DOCKER_REGISTRY_HOST}"
+docker build -t "${DOCKER_REGISTRY_HOST}/${DOCKER_REGISTRY_PATH}" .
+docker push "${DOCKER_REGISTRY_HOST}/${DOCKER_REGISTRY_PATH}"

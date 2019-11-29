@@ -1,0 +1,13 @@
+- hosts: webserver
+  vars:
+    registry_url: "registry.gitlab.com"
+  roles:
+    - role: postgres
+      become: true
+      become_user: op
+    - role: gitlab
+      become: true
+      become_user: op
+    - role: deploy
+      become: true
+      become_user: op

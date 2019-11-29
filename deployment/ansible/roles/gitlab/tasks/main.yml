@@ -1,0 +1,9 @@
+- name: Load vars
+  include_vars:
+    dir: "vars"
+    ignore_files: '.template'
+- name: Login registry
+  docker_login:
+    registry_url: "{{registry_url}}"
+    username: "{{gitlab_username}}"
+    password: "{{gitlab_password}}"
